@@ -74,12 +74,12 @@ export default function Contact() {
               <h3>Conversemos sobre una posible solución.</h3>
               <p>Los siguientes datos son ficticios y se incluyen únicamente para mostrar el funcionamiento del prototipo académico.</p>
             </div>
-            <div className="contact-detail"><span><FiMail /></span><div><small>Correo de ejemplo</small><strong>contacto@digitalpyme.example</strong></div></div>
+            <div className="contact-detail"><span><FiMail /></span><div><small>Correo de ejemplo</small><strong>contacto@digitalpyme.com.co</strong></div></div>
             <div className="contact-detail"><span><FiMapPin /></span><div><small>Ubicación de referencia</small><strong>Barranquilla, Atlántico, Colombia</strong></div></div>
             <a className="whatsapp-demo" href="https://wa.me/573000000000" target="_blank" rel="noreferrer">
-              <FiMessageCircle /> WhatsApp demostrativo <FiArrowUpRight />
+              <FiMessageCircle /> WhatsApp  <FiArrowUpRight />
             </a>
-            <small className="demo-caption">Número de ejemplo: +57 300 000 0000. No corresponde a una línea comercial real.</small>
+            <small className="demo-caption">Número de ejemplo: +57 300 9483046</small>
           </div>
 
           <form className="contact-form reveal" onSubmit={handleSubmit}>
