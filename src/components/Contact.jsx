@@ -2,10 +2,17 @@ import { useState } from 'react'
 import { FiArrowUpRight, FiMail, FiMapPin, FiMessageCircle, FiCheckCircle } from 'react-icons/fi'
 
 const initialForm = { name: '', company: '', email: '', service: '', message: '' }
+const COOKIE_FORM_URL =
+  'https://docs.google.com/forms/d/e/1FAIpQLSeT1Vo2WKXW4RzmfV0AJQYLpcCzEhf-a-3oiCFCOz0vo_gevw/viewform?usp=header'
 
 export default function Contact() {
   const [form, setForm] = useState(initialForm)
   const [submitted, setSubmitted] = useState(false)
+  const [sending, setSending] = useState(false)
+
+  const openCookieForm = () => {
+    window.open(COOKIE_FORM_URL, '_blank', 'noopener,noreferrer')
+  }
 
   const handleChange = (event) => {
     const { name, value } = event.target
@@ -13,9 +20,42 @@ export default function Contact() {
     setSubmitted(false)
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    setSubmitted(true)
+    setSending(true)
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: 'edb688b1-9d7c-4922-bf19-067823601611',
+          subject: `Nueva asesoría: ${form.service} (${form.company})`,
+          from_name: 'DigitalPymes Web',
+          Nombre: form.name,
+          Empresa: form.company,
+          Correo: form.email,
+          Servicio: form.service,
+          Mensaje: form.message,
+        }),
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        setSubmitted(true)
+        setForm(initialForm)
+      } else {
+        alert('No se pudo enviar el correo.')
+      }
+    } catch (error) {
+      alert('Error de conexión al intentar enviar el mensaje.')
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -63,16 +103,26 @@ export default function Contact() {
               </select>
             </label>
             <label>Cuéntanos sobre tu necesidad<textarea name="message" value={form.message} onChange={handleChange} placeholder="Describe brevemente qué te gustaría mejorar..." rows="4" required minLength="10" /></label>
-            <button className="button button--primary form-submit" type="submit">Enviar consulta de demostración <FiArrowUpRight /></button>
+            <button className="button button--primary form-submit" type="submit" disabled={sending}>
+              {sending ? 'Enviando...' : 'Enviar consulta de demostración'} <FiArrowUpRight />
+            </button>
             {submitted && (
               <div className="form-success" role="status">
                 <FiCheckCircle />
-                <span><strong>Validación completada.</strong> Este es un prototipo: la información no se envió a ningún servidor.</span>
+                <span><strong>Validación completada</strong>Se ha enviado un mensaje a DigitalPymes</span>
               </div>
             )}
-            <p className="form-disclaimer">DigitalPyme, tu negocio siempre conectado</p>
+            <p className="form-disclaimer">Tu negocio siempre conectado</p>
           </form>
         </div>
+
+        <button
+          className="button-cok button-green form-submit-green"
+          type="button"
+          onClick={openCookieForm}
+        >
+          Gana una galleta <FiArrowUpRight />
+        </button>
       </div>
     </section>
   )
