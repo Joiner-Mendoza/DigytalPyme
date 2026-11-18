@@ -70,7 +70,7 @@ export default function Contact() {
                 <span><strong>Validación completada.</strong> Este es un prototipo: la información no se envió a ningún servidor.</span>
               </div>
             )}
-            <p className="form-disclaimer">Tu negocio siempre en linea</p>
+            <p className="form-disclaimer">DigitalPyme, tu negocio siempre conectado</p>
           </form>
         </div>
       </div>
