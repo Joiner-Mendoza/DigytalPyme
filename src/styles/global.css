@@ -1,20 +1,20 @@
 :root {
   font-family: 'DM Sans', sans-serif;
-  color: #18283b;
-  background: #fff;
+  color: var(--ink);
+  background: var(--white);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  --navy: #0b1f36;
-  --navy-2: #102b49;
-  --blue: #2374d8;
-  --blue-bright: #3988f5;
-  --cyan: #66c8e8;
-  --ink: #18283b;
-  --muted: #68778a;
-  --line: #e6ebf1;
-  --soft: #f5f8fb;
-  --white: #fff;
+  --navy: #35145F;
+  --navy-2: #35145F;
+  --blue: #6C35B5;
+  --blue-bright: #8B5CF6;
+  --cyan: #C4B5FD;
+  --ink: #29213A;
+  --muted: #716A7D;
+  --line: #E8E1F1;
+  --soft: #F8F6FC;
+  --white: #FFFFFF;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 88px; }
@@ -32,8 +32,8 @@ h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; }
 h2 { color: var(--navy); font-size: clamp(2rem, 4vw, 3.15rem); line-height: 1.15; letter-spacing: -1.7px; font-weight: 800; margin-bottom: 0; }
 h2 em, h1 em { color: var(--blue); font-style: normal; }
 p { color: var(--muted); line-height: 1.75; }
-::selection { background: #d7e9ff; color: var(--navy); }
-:focus-visible { outline: 3px solid #70b5ff; outline-offset: 3px; }
+::selection { background: #C4B5FD; color: var(--navy); }
+:focus-visible { outline: 3px solid #8B5CF6; outline-offset: 3px; }
 @media (max-width: 700px) {
   .container { width: min(100% - 36px, 560px); }
   .section { padding: 78px 0; }
