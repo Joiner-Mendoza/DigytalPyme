@@ -70,7 +70,7 @@ export default function Contact() {
                 <span><strong>Validación completada.</strong> Este es un prototipo: la información no se envió a ningún servidor.</span>
               </div>
             )}
-            <p className="form-disclaimer">Demostración académica. No ingreses información confidencial o datos reales de clientes.</p>
+            <p className="form-disclaimer">Tu negocio siempre en linea</p>
           </form>
         </div>
       </div>
