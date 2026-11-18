@@ -10,9 +10,9 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false)
   const [sending, setSending] = useState(false)
 
-  const openCookieForm = () => {
-    window.open(COOKIE_FORM_URL, '_blank', 'noopener,noreferrer')
-  }
+  // const openCookieForm = () => {
+  //   window.open(COOKIE_FORM_URL, '_blank', 'noopener,noreferrer')
+  // }
 
   const handleChange = (event) => {
     const { name, value } = event.target
@@ -115,14 +115,14 @@ export default function Contact() {
             <p className="form-disclaimer">Tu negocio siempre conectado</p>
           </form>
         </div>
-
+{/* 
         <button
           className="button-cok button-green form-submit-green"
           type="button"
           onClick={openCookieForm}
         >
           Gana una galleta <FiArrowUpRight />
-        </button>
+        </button> */}
       </div>
     </section>
   )
