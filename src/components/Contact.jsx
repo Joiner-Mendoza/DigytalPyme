@@ -79,7 +79,7 @@ export default function Contact() {
             <a className="whatsapp-demo" href="https://wa.me/573000000000" target="_blank" rel="noreferrer">
               <FiMessageCircle /> WhatsApp  <FiArrowUpRight />
             </a>
-            <small className="demo-caption">Número de ejemplo: +57 300 9483046</small>
+            <small className="demo-caption">Número: +57 300 9483046</small>
           </div>
 
           <form className="contact-form reveal" onSubmit={handleSubmit}>
